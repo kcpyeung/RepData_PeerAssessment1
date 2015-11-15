@@ -41,7 +41,14 @@ median(steps_per_day$Steps)
 
 ## What is the average daily activity pattern?
 
+```r
+steps_per_day <- aggregate(step_data$steps, by=list(Date=step_data$date), FUN=mean)
+plot(steps_per_day, type="l", ylab="Average number of steps")
+```
 
+![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
+
+The highest average number of steps was on 2012-11-24.
 
 ## Imputing missing values
 
