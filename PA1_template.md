@@ -42,8 +42,8 @@ median(steps_per_day$Steps)
 ## What is the average daily activity pattern?
 
 ```r
-steps_per_day <- aggregate(step_data$steps, by=list(Date=step_data$date), FUN=mean)
-plot(steps_per_day, type="l", ylab="Average number of steps")
+average_steps <- aggregate(step_data$steps, by=list(Date=step_data$date), FUN=mean)
+plot(average_steps, type="l", ylab="Average number of steps")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
@@ -52,6 +52,11 @@ The highest average number of steps was on 2012-11-24.
 
 ## Imputing missing values
 
-
+```r
+step_data_with_na <- read.csv("activity.csv")
+nas <- step_data_with_na[step_data_with_na$steps == "NA", ]
+na_rows <- nrow(nas)
+```
+There are 2304 rows containing NA values.
 
 ## Are there differences in activity patterns between weekdays and weekends?
